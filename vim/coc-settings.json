@@ -1,7 +1,6 @@
 {
   "python.jediEnabled": false,
   "python.linting.enabled": true,
-  "java.format.enabled": true,
   "languageserver": {
     "ccls": {
       "command": "ccls",
