@@ -11,3 +11,5 @@ end
 if test -e $HOME/.config/fish/specific.fish
     source $HOME/.config/fish/specific.fish
 end
+
+set PATH $PATH /usr/local/bin/ $HOME/local/bin/ $HOME/go/bin/
