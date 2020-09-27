@@ -1,0 +1,31 @@
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+set from = "philipp.eder@posteo.net"
+set imap_user = "$from"
+set imap_pass = `pass posteo` 
+set realname = "Philipp Eder"
+set smtp_url = "smtp://$imap_user@posteo.de:587"
+set smtp_pass = "$imap_pass"
+set folder = "imaps://posteo.de:993"
+set spoolfile = "+INBOX"
+set pgp_default_key = "$from"
+
+set record="+Sent"
+set postponed="+Drafts"
+
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+
+set mail_check = 30
+set move = no
+set imap_keepalive = 900
+set sort = threads
+set editor = "vim"
+source ~/.mutt/gpg.rc
+set pgp_autosign=yes
+
+
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
