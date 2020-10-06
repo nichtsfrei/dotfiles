@@ -1,3 +1,9 @@
+# requirements
+
+```
+sudo dnf install xorg-x11-server-devel NetworkManager-tui google-noto-emoji-fonts emoji-picker xorg-x11-fonts-100dpi feh libXinerama-devel libXft-devel
+```
+
 # apply patches
 
 ```

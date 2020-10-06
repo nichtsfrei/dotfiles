@@ -12,10 +12,10 @@ call plug#end()
 filetype plugin indent on
 " commonly used files
 let mapleader=","
-nnoremap <leader>n :e $HOME/src/nichtsfrei/notes<CR>
 set ruler
 set nocompatible
 set relativenumber
+set number
 set hidden
 set path+=**
 set wildmenu
@@ -26,19 +26,15 @@ set cursorline
 colorscheme my_dark_theme
 set backspace=indent,eol,start
 
-"" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 
-"" Directories for swp files
 set nobackup
 set noswapfile
 
 set fileformats=unix,dos,mac
 
-
-"" Split
 nnoremap <Leader>b :buffers<CR>:buffer<Space>
 nnoremap <Leader>f :NERDTreeToggle<CR>
 nnoremap <F2> :set hlsearch!<CR>
