@@ -1,0 +1,29 @@
+From c7c738ccba4edecdf5573b8a30be85d08483c0bf Mon Sep 17 00:00:00 2001
+From: Philipp Eder <philipp.eder@posteo.net>
+Date: Sun, 11 Oct 2020 13:27:17 +0200
+Subject: [PATCH] set selborder to white
+
+---
+ config.def.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/config.def.h b/config.def.h
+index bc58c4b..5f8194a 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -12,10 +12,11 @@ static const char col_gray2[]       = "#444444";
+ static const char col_gray3[]       = "#bbbbbb";
+ static const char col_gray4[]       = "#eeeeee";
+ static const char col_cyan[]        = "#005577";
++static const char col_white[]       = "#ffffff";
+ static const char *colors[][3]      = {
+ 	/*               fg         bg         border   */
+ 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
++	[SchemeSel]  = { col_gray4, col_cyan,  col_white},
+ };
+ 
+ /* tagging */
+-- 
+2.26.2
+
