@@ -5,7 +5,7 @@ else
 end
 
 if type -q rg
-    export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs'
+    export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 end
 
 if test -e $HOME/.config/fish/specific.fish

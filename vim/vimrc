@@ -4,8 +4,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go'
 Plug 'sbdchd/neoformat'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'nichtsfrei/vim-header'
 Plug 'tpope/vim-surround'
 call plug#end()
@@ -73,9 +71,9 @@ endfunction
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
-noremap <c-p> :<C-u>Files<CR>
 set statusline^=%{coc#status()}
 " auto header
 let g:header_auto_add_header = 0
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent smartindent
 set path=.,**

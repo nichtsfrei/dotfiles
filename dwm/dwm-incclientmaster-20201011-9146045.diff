@@ -12,15 +12,6 @@ diff --git a/config.def.h b/config.def.h
 index e5b3966..bc58c4b 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -31,7 +31,7 @@ static const Rule rules[] = {
- };
- 
- /* layout(s) */
--static const float mfact     = 0.75; /* factor of master area size [0.05..0.95] */
-+static const float mfact     = 0.67; /* factor of master area size [0.05..0.95] */
- static const int nmaster     = 2;    /* number of clients in master area */
- static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
- 
 @@ -68,8 +68,10 @@ static Key keys[] = {
  	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
  	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },

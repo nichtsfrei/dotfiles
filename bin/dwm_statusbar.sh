@@ -1,18 +1,12 @@
-#!/bin/bash
+#!/bin/sh
 
 
 while true; do
-    BATTERY=""
-    for bat in /sys/class/power_supply/BAT* ; do
-        name=`basename $bat | sed 's/BAT//g'`
-        #status=`cat $bat/status`
-        now=`cat $bat/energy_now`
-        full=`cat $bat/energy_full`
-        cycle_count=`cat $bat/cycle_count`
-        BATTERY="$BATTERY ($name: ♽ $cycle_count $now/$full)" 
-    done
-    BATTERY="| 🔋 $BATTERY"
+    BAT0="0: `acpiconf -i 0 | grep "Remaining capacity" | sed 's/Remaining capacity:[[:space:]]*//'`"
+    BAT1="1: `acpiconf -i 1 | grep "Remaining capacity" | sed 's/Remaining capacity:[[:space:]]*//'`"
+    BATTERY="$BAT0 ♽ $BAT1" 
+    BATTERY="| $BATTERY"
     TIME=`date '+%a %Y-%m-%d %H:%M'`
-	xsetroot -name "$BATTERY | 📅︎ $TIME |"
-	sleep 55s
+	xsetroot -name "$BATTERY | $TIME |"
+	sleep 55
 done &
