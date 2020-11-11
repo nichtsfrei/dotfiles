@@ -2,10 +2,10 @@ filetype off
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'fatih/vim-go'
 Plug 'sbdchd/neoformat'
 Plug 'nichtsfrei/vim-header'
-Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 filetype plugin indent on
 " commonly used files
@@ -36,7 +36,7 @@ set fileformats=unix,dos,mac
 nnoremap <Leader>b :buffers<CR>:buffer<Space>
 nnoremap <Leader>f :NERDTreeToggle<CR>
 nnoremap <F2> :set hlsearch!<CR>
-
+noremap <c-p> :<C-u>Files<CR>
 " Nerdtree
 let NERDTreeHijackNetrw=1
 " Smaller updatetime for CursorHold & CursorHoldI
