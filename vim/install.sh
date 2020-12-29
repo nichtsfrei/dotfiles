@@ -9,6 +9,6 @@ mkdir -p ~/.config/coc/extensions
 cd ~/.config/coc/extensions
 echo '{"dependencies":{}}'> package.json
 # Change extension names to the extensions you need
-npm install coc-go coc-python coc-tsserver coc-json coc-html coc-metals --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+npm install coc-go coc-python coc-tsserver coc-json coc-html --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
 
 vim +'PlugInstall --sync' +qa

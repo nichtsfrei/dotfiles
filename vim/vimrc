@@ -2,10 +2,10 @@ filetype off
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sbdchd/neoformat'
 Plug 'nichtsfrei/vim-header'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'psf/black', { 'branch': 'stable' }
 call plug#end()
 filetype plugin indent on
 " commonly used files
@@ -57,7 +57,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-nnoremap <silent> F :Neoformat<CR>
 nnoremap <silent> Q :call CocActionAsync('doQuickfix')<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
