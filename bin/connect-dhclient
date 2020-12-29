@@ -1,0 +1,5 @@
+#!/bin/sh
+set -ex
+[ -z "$1" ] && DEVICE="usb0" || DEVICE="$1"
+
+ip link set $DEVICE up && dhclient $DEVICE
