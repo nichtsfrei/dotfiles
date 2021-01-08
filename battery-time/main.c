@@ -41,7 +41,7 @@ int main(){
 	}
 	time_t now = time(&now);
 	if (now > -1){
-		struct tm *ptm = gmtime(&now);
+		struct tm *ptm = localtime(&now);
 		if (ptm != NULL) {
 			char time_s[36];
 			strftime(time_s, 36, "%a, Week %V, %F, %T" , ptm);
