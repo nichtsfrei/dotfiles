@@ -6,7 +6,9 @@ Plug 'nichtsfrei/vim-header'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'm-pilia/vim-ccls'
 Plug 'psf/black', { 'branch': 'stable' }
+Plug 'whiteinge/diffconflicts'
 call plug#end()
 filetype plugin indent on
 " commonly used files
