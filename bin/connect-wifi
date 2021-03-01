@@ -2,7 +2,7 @@
 # To create a config call wpa_passphrase MYSSID passphrase
 [ -z "$1" ] && DEVICE="wlp3s0" || DEVICE="$1"
 [ -z "$2" ] && CONFIG_NAME="network-name" || CONFIG_NAME="$2"
-[ -z "$3" ] && CONFIG_PATH="/home/philipp/config/wpa_supplicant" || CONFIG_PATH="$3"
+[ -z "$3" ] && CONFIG_PATH="$HOME/config/wpa_supplicant" || CONFIG_PATH="$3"
 set -ex
 
-wpa_supplicant -B -i $DEVICE -c "$CONFIG_PATH/$CONFIG_NAME" && dhclient $DEVICE
+sudo bash -c "wpa_supplicant -B -i $DEVICE -c "$CONFIG_PATH/$CONFIG_NAME" && dhclient $DEVICE"
