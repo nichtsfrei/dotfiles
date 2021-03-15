@@ -5,3 +5,4 @@
 mkdir -p $HOME/.mutt
 ln -s $BASE_PATH/muttrc $HOME/.mutt/muttrc
 ln -s $BASE_PATH/gpg.rc $HOME/.mutt/gpg.rc
+ln -s $BASE_PATH/mailcap $HOME/.mutt/mailcap

@@ -29,3 +29,6 @@ set pgp_autosign=yes
 
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
