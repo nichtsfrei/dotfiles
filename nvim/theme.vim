@@ -1,19 +1,11 @@
-" Minimalist - A Material Color Scheme Darker
-" Forked from
+" Based on
 " Author:       Diki Ananta <diki1aap@gmail.com>
 " Repository:   https://github.com/dikiaap/minimalist
 " Version:      1.6
 " License:      MIT
 
 set background=dark
-if version > 580
-    hi clear
-    if exists("syntax_on")
-        syntax reset
-    endif
-endif
 set t_Co=256
-let g:colors_name = "minimalist"
 
 """""""""""""""""""""""
 " General
@@ -47,7 +39,7 @@ hi StatusLineNC     ctermfg=255     ctermbg=NONE    cterm=NONE
 hi Title            ctermfg=255     ctermbg=NONE    cterm=NONE
 hi Underlined       ctermfg=NONE    ctermbg=NONE    cterm=NONE
 hi VertSplit        ctermfg=239     ctermbg=NONE    cterm=NONE
-hi Visual           ctermfg=NONE    ctermbg=236     cterm=NONE
+hi Visual           ctermfg=NONE    ctermbg=5       cterm=NONE
 hi WarningMsg       ctermfg=255     ctermbg=167     cterm=NONE
 hi WildMenu         ctermfg=234     ctermbg=215     cterm=NONE
 hi NERDTreeUp       ctermfg=167     ctermbg=NONE    cterm=NONE
