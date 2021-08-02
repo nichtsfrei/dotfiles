@@ -1,8 +1,8 @@
 filetype off
 call plug#begin('~/.plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-abolish'
 Plug 'rhysd/vim-clang-format'
-Plug 'tomasiser/vim-code-dark'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-vinegar'
 call plug#end()
 filetype plugin indent on
