@@ -1,3 +1,4 @@
+let g:coq_settings = { 'auto_start': 'shut-up' }
 lua << EOF
   local nvim_lsp = require 'lspconfig'
 
