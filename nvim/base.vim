@@ -22,10 +22,6 @@ set noswapfile
 
 set fileformats=unix,dos,mac
 
-nnoremap <Leader>b :buffers<CR>:buffer<Space>
-"nnoremap <Leader>f :NERDTreeToggle<CR>
-"noremap <c-p> :<C-u>Files<CR>
-" Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
 
 set shortmess+=c
