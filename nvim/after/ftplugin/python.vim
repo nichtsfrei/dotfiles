@@ -2,7 +2,6 @@ set colorcolumn=80
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent smartindent
 setlocal path=.,**
 setlocal wildignore=*.pyc
-autocmd BufWritePre *.py execute ':Black'
 
 " escape regex: s/\(|\|\\\)/\\\1/g
 set include=^\\s*\\(from\\\|import\\)\\s*\\zs\\(\\S\\+\\s\\{-}\\)*\\ze\\($\\\|\ as\\)
