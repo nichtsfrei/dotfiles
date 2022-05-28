@@ -9,7 +9,7 @@ require('dap-python').setup('/usr/bin/python3')
 -- requires lldb-11
 dap.adapters.lldb = {
   type = 'executable',
-  command = '/usr/bin/lldb-vscode-11', -- adjust as needed
+  command = '/usr/bin/lldb-vscode', -- adjust as needed
   name = "lldb"
 }
 
