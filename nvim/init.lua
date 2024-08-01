@@ -152,7 +152,7 @@ require("lazy").setup({
 		opts = {
 			options = {
 				icons_enabled = false,
-				theme = "solarized",
+				theme = "iceberg_dark",
 				component_separators = "|",
 				section_separators = "",
 			},
@@ -360,14 +360,19 @@ local servers = {
 	-- gopls = {},
 	-- pyright = {},
 	-- taken care of by rustaceanvim
-	rust_analyzer = {},
+	rust_analyzer = {
+		inline_suggest = { enable = true },
+		checkOnSave = { command = "clippy" },
+
+	},
 	-- tsserver = {},
 	-- html = { filetypes = { 'html', 'twig', 'hbs'} },
-	nil_ls = {},
 
 	lua_ls = {
 		Lua = {
-			workspace = { checkThirdParty = false },
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
 			telemetry = { enable = false },
 		},
 	},

@@ -6,6 +6,7 @@ return function(_, bufnr)
 
 		vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
 	end
+	vim.lsp.inlay_hint.enable(true, {bufnr = bufnr})
 
 	nmap("<leader>r", vim.lsp.buf.rename, "[R]ename")
 	nmap("<leader>a", vim.lsp.buf.code_action, "Code [A]ction")
