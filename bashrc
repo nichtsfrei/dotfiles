@@ -11,20 +11,23 @@
 # ridden in every subshell.
 EDITOR="nvim"
 
-# function nvim() {
-#     command -v nvim > /dev/null && command nvim "$@" || distrobox-host-exec nvim "$@"
-# }
 test -s ~/.alias && . ~/.alias || true
 
+check_path_or_add() {
+    local path="$1"
+    case ":${PATH}:" in
+        *:"$path":*)
+            ;;
+        *)
+            # Prepending path in case a system-installed binary needs to be overridden
+            export PATH="$path:$PATH"
+            ;;
+    esac
+}
 # add binaries to PATH if they aren't added yet
-case ":${PATH}:" in
-    *:"$HOME/.local/bin":*)
-        ;;
-    *)
-        # Prepending path in case a system-installed binary needs to be overridden
-        export PATH="$HOME/.local/bin:$PATH"
-        ;;
-esac
+check_path_or_add "$HOME/.local/bin"
+check_path_or_add "$HOME/.scripts"
+
 
 . "$HOME/.atuin/bin/env"
 
