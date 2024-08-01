@@ -13,19 +13,28 @@ linkables[2]="bashrc,${HOME}/.bashrc"
 linkables[3]="scripts,${HOME}/.scripts"
 
 setup_distrobox() {
-  sh ${SCRIPT_BASE_DIR}/setup-distrobox.sh
+  distrobox ls | grep tumbleweed || distrobox assemble create --file distrobox/default.ini
 }
 
 configure() {
   for linkable in ${linkables[@]}; do
     IFS=',' read -r -a linkable <<< "$linkable"
-    ln -sf ${SCRIPT_BASE_DIR}/${linkable[0]} ${linkable[1]}
+    local source="${SCRIPT_BASE_DIR}/${linkable[0]}"
+    local target="${linkable[1]}"
+    if [ -e "${target}" ]; then
+      if [ "$(readlink -f $target)" != "${source}" ]; then
+        echo "File ${target} is not a symlink to ${source}. Please remove it manually."
+      fi
+      continue
+    fi
+    ln -s ${source} ${target}
   done
 }
 
 setup() {
-  setup_distrobox && configure
+  [ -z "$CONTAINER_ID" ] && setup_distrobox
+  configure
 }
 
-set -ex
+set -e
 $GOAL
