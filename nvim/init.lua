@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+
 vim.g.maplocalleader = " "
 
 -- Install package manager
@@ -31,7 +32,6 @@ require("lazy").setup({
 
 	-- Detect tabstop and shiftwidth automatically
 	"tpope/vim-sleuth",
-	"github/copilot.vim",
 
 	-- NOTE: This is where your plugins related to LSP can be installed.
 	--  The configuration is done below. Search for lspconfig to find it below.
@@ -139,9 +139,6 @@ require("lazy").setup({
 		priority = 1000,
 		config = function()
 			vim.o.background = "dark"
-			require("solarized").setup({
-				transparent = true,
-			})
 			vim.cmd.colorscheme("solarized")
 		end,
 	},
@@ -240,7 +237,7 @@ require("lazy").setup({
 -- NOTE: You can change these options as you wish!
 
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
@@ -363,7 +360,6 @@ local servers = {
 	rust_analyzer = {
 		inline_suggest = { enable = true },
 		checkOnSave = { command = "clippy" },
-
 	},
 	-- tsserver = {},
 	-- html = { filetypes = { 'html', 'twig', 'hbs'} },
@@ -398,3 +394,14 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
+-- vim.g.clipboard = {
+--   name = 'OSC 52',
+--   copy = {
+--     ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+--     ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+--   }, 
+--   paste = {
+--     ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+--     ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+--   },
+-- }
