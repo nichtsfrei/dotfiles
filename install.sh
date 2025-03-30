@@ -32,7 +32,7 @@ configure() {
 }
 
 setup() {
-  [ -z "$CONTAINER_ID" ] && setup_distrobox
+  #[ -z "$CONTAINER_ID" ] && setup_distrobox
   configure
 }
 
