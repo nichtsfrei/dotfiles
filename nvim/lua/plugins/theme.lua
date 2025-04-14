@@ -1,8 +1,6 @@
 return {
-    "NLKNguyen/papercolor-theme",
-    branch = "master",
+    "EdenEast/nightfox.nvim",
     config = function()
-        vim.opt.background = "light"
-        vim.cmd("colorscheme PaperColor")
+        vim.cmd("colorscheme carbonfox")
     end,
 }

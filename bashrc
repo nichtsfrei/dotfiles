@@ -27,12 +27,10 @@ check_path_or_add() {
 # add binaries to PATH if they aren't added yet
 check_path_or_add "$HOME/.local/bin"
 check_path_or_add "$HOME/.scripts"
+check_path_or_add "$HOME/.cargo/bin"
 
-
-. "$HOME/.atuin/bin/env"
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-eval "$(atuin init bash)"
 
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
