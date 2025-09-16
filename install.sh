@@ -4,19 +4,18 @@
 CONFIG_DIR=${HOME}/.config
 
 SCRIPT_BASE_DIR=$(dirname $(readlink -f $0))
-sh $SCRIPT_BASE_DIR/prepare-fonts.sh
 
 echo "SCRIPT_BASE_DIR: $SCRIPT_BASE_DIR CONFIG_DIR: $CONFIG_DIR GOAL: $GOAL"
+sh $SCRIPT_BASE_DIR/prepare-fonts.sh
 declare -a linkables
 linkables[0]="nvim,${CONFIG_DIR}/nvim"
 linkables[1]="tmux,${CONFIG_DIR}/tmux"
-linkables[2]="bashrc,${HOME}/.bashrc"
-linkables[3]="scripts,${HOME}/.scripts"
-linkables[4]="gitconfig,${HOME}/.gitconfig"
-linkables[5]="fonts,${HOME}/.fonts"
+linkables[2]="scripts,${HOME}/.scripts"
+linkables[3]="gitconfig,${HOME}/.gitconfig"
+linkables[4]="fonts,${HOME}/.fonts"
 
 setup_distrobox() {
-  distrobox ls | grep tumbleweed || distrobox assemble create --file distrobox/default.ini
+  distrobox ls | grep my-distrobox || distrobox assemble create --file distrobox/default.ini
 }
 
 configure() {
@@ -38,7 +37,7 @@ configure() {
 
 setup() {
   #TODO: make configurable
-  [ -z "$CONTAINER_ID" ] && setup_distrobox
+  #[ -z "$CONTAINER_ID" ] && setup_distrobox
   configure
 }
 

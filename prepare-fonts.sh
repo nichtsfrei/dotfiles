@@ -1,5 +1,5 @@
 #!/bin/sh
-VERSION="v3.3.0"
+VERSION="v3.4.0"
 FONT_DIR="fonts"
 FONT="Monaspace"
 [ -d "$FONT_DIR" ] && echo "fonts exists" && exit 0
