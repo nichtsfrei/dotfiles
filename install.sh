@@ -13,6 +13,7 @@ linkables[1]="tmux,${CONFIG_DIR}/tmux"
 linkables[2]="scripts,${HOME}/.scripts"
 linkables[3]="gitconfig,${HOME}/.gitconfig"
 linkables[4]="fonts,${HOME}/.fonts"
+linkables[5]="fish/functions/fish_ssh_agent.fish,${CONFIG_DIR}/fish/functions/fish_ssh_agent.fish"
 
 setup_distrobox() {
   distrobox ls | grep my-distrobox || distrobox assemble create --file distrobox/default.ini
@@ -37,7 +38,7 @@ configure() {
 
 setup() {
   #TODO: make configurable
-  #[ -z "$CONTAINER_ID" ] && setup_distrobox
+  [ -z "$CONTAINER_ID" ] && setup_distrobox
   configure
 }
 
