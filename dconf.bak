@@ -1,0 +1,123 @@
+[org/gnome/Ptyxis]
+default-profile-uuid='b2f790617348022bc2e00b0468d6d177'
+font-name='AdwaitaMono Nerd Font 12'
+interface-style='system'
+profile-uuids=['b2f790617348022bc2e00b0468d6d177']
+use-system-font=false
+window-size=(uint32 80, uint32 63)
+
+[org/gnome/Ptyxis/Profiles/b2f790617348022bc2e00b0468d6d177]
+limit-scrollback=false
+palette='linux'
+
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
+gtk-theme='adw-gtk3-dark'
+
+[org/gnome/desktop/privacy]
+report-technical-problems=false
+
+[org/gnome/desktop/wm/keybindings]
+maximize=@as []
+minimize=@as []
+move-to-monitor-down=['<Super><Shift>Down']
+move-to-monitor-left=['<Super><Shift>Left']
+move-to-monitor-right=['<Super><Shift>Right']
+move-to-monitor-up=['<Super><Shift>Up']
+move-to-workspace-down=['<Control><Shift><Alt>Down']
+move-to-workspace-left=['<Super><Shift>Page_Up', '<Super><Shift><Alt>Left', '<Control><Shift><Alt>Left']
+move-to-workspace-right=['<Super><Shift>Page_Down', '<Super><Shift><Alt>Right', '<Control><Shift><Alt>Right']
+move-to-workspace-up=['<Control><Shift><Alt>Up']
+switch-applications=@as []
+switch-applications-backward=@as []
+switch-group=@as []
+switch-group-backward=@as []
+switch-panels=@as []
+switch-panels-backward=@as []
+switch-to-workspace-1=@as []
+switch-to-workspace-last=@as []
+switch-to-workspace-left=@as []
+switch-to-workspace-right=@as []
+switch-windows=@as []
+switch-windows-backward=@as []
+unmaximize=@as []
+
+[org/gnome/desktop/wm/preferences]
+button-layout=':minimize,maximize,close'
+
+[org/gnome/evolution-data-server]
+migrated=true
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Control><Alt>t'
+command='ptyxis --new-window'
+name='Terminal'
+
+[org/gnome/shell]
+disable-user-extensions=false
+disabled-extensions=['background-logo@fedorahosted.org']
+enabled-extensions=['caffeine@patapon.info', 'paperwm@paperwm.github.com']
+remember-mount-password=false
+welcome-dialog-last-shown-version='48.0'
+
+[org/gnome/shell/extensions/caffeine]
+indicator-position-max=1
+
+[org/gnome/shell/extensions/paperwm]
+animation-time=0.0
+horizontal-margin=4
+last-used-display-server='Wayland'
+open-window-position=1
+restore-attach-modal-dialogs='true'
+restore-edge-tiling='true'
+restore-keybinds='{"toggle-tiled-left":{"bind":"[\\"<Super>Left\\"]","schema_id":"org.gnome.mutter.keybindings"},"toggle-tiled-right":{"bind":"[\\"<Super>Right\\"]","schema_id":"org.gnome.mutter.keybindings"},"cancel-input-capture":{"bind":"[\\"<Super><Shift>Escape\\"]","schema_id":"org.gnome.mutter.keybindings"},"restore-shortcuts":{"bind":"[\\"<Super>Escape\\"]","schema_id":"org.gnome.mutter.wayland.keybindings"},"switch-to-workspace-last":{"bind":"[\\"<Super>End\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-panels":{"bind":"[\\"<Control><Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-group-backward":{"bind":"[\\"<Shift><Super>Above_Tab\\",\\"<Shift><Alt>Above_Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"unmaximize":{"bind":"[\\"<Super>Down\\",\\"<Alt>F5\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-to-workspace-1":{"bind":"[\\"<Super>Home\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-to-workspace-left":{"bind":"[\\"<Super>Page_Up\\",\\"<Super><Alt>Left\\",\\"<Control><Alt>Left\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-group":{"bind":"[\\"<Super>Above_Tab\\",\\"<Alt>Above_Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-panels-backward":{"bind":"[\\"<Shift><Control><Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-to-workspace-right":{"bind":"[\\"<Super>Page_Down\\",\\"<Super><Alt>Right\\",\\"<Control><Alt>Right\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"minimize":{"bind":"[\\"<Super>h\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-applications":{"bind":"[\\"<Super>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-windows":{"bind":"[\\"<Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"maximize":{"bind":"[\\"<Super>Up\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-applications-backward":{"bind":"[\\"<Shift><Super>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-windows-backward":{"bind":"[\\"<Shift><Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"focus-active-notification":{"bind":"[\\"<Super>n\\"]","schema_id":"org.gnome.shell.keybindings"},"toggle-message-tray":{"bind":"[\\"<Super>v\\",\\"<Super>m\\"]","schema_id":"org.gnome.shell.keybindings"},"rotate-video-lock-static":{"bind":"[\\"<Super>o\\",\\"XF86RotationLockToggle\\"]","schema_id":"org.gnome.settings-daemon.plugins.media-keys"}}'
+restore-workspaces-only-on-primary='true'
+selection-border-radius-top=2
+selection-border-size=2
+show-workspace-indicator=true
+vertical-margin=4
+vertical-margin-bottom=4
+window-gap=4
+
+[org/gnome/shell/extensions/paperwm/keybindings]
+close-window=['<Super>q']
+move-space-monitor-above=['<Shift><Control><Alt><Super>k']
+move-space-monitor-below=['<Shift><Control><Alt><Super>j']
+move-space-monitor-left=['<Shift><Control><Alt><Super>l']
+move-space-monitor-right=['<Shift><Control><Alt><Super>h']
+swap-monitor-above=['<Alt><Super>k']
+swap-monitor-below=['<Alt><Super>j']
+swap-monitor-left=['<Alt><Super>h']
+swap-monitor-right=['<Alt><Super>l']
+switch-down-loop=['<Super>j']
+switch-global-down=['<Alt><Super>j']
+switch-global-left=['<Alt><Super>h']
+switch-global-right=['<Alt><Super>l']
+switch-global-up=['<Alt><Super>k']
+switch-left-loop=['<Super>h']
+switch-monitor-above=['<Shift><Super>k']
+switch-monitor-below=['<Shift><Super>j']
+switch-monitor-left=['<Shift><Super>h']
+switch-monitor-right=['<Shift><Super>l']
+switch-right-loop=['<Super>l']
+switch-up-loop=['<Super>k']
+
+[org/gnome/shell/extensions/paperwm/workspaces]
+list=['1a84aca8-9951-48e0-ac20-36351277e7d3', '6086d9d6-bd6f-4114-a7a0-735ef2b5c099']
+
+[org/gnome/shell/extensions/paperwm/workspaces/1a84aca8-9951-48e0-ac20-36351277e7d3]
+index=0
+show-position-bar=true
+show-top-bar=true
+
+[org/gnome/shell/extensions/paperwm/workspaces/6086d9d6-bd6f-4114-a7a0-735ef2b5c099]
+index=1
+
+[org/gnome/shell/keybindings]
+focus-active-notification=@as []
+shift-overview-down=['<Super><Alt>Down']
+shift-overview-up=['<Super><Alt>Up']
+toggle-message-tray=@as []
+
+[org/gnome/system/location]
+enabled=false

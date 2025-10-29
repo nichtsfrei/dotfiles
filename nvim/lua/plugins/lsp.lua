@@ -167,12 +167,13 @@ return {
             },
         }
 
-        local lspconfig = require("lspconfig")
+        local lspconfig = vim.lsp.config
         for key, value in pairs(servers) do
-            lspconfig[key].setup({
+            lspconfig[key] = {
                 settings = value,
                 filetypes = value.filetypes,
-            })
+            }
+            vim.lsp.enable(key)
         end
     end,
 }
