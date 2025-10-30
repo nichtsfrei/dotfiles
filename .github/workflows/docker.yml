@@ -20,5 +20,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - run: docker build -f base.Dockerfile -t nichtsfrei/base:latest .
       - run: docker push nichtsfrei/base:latest
-      - run: docker build -f qmk.Dockerfile -t nichtsfrei/qmk:latest .
-      - run: docker push nichtsfrei/qmk:latest
+      # - run: docker build -f qmk.Dockerfile -t nichtsfrei/qmk:latest .
+      # - run: docker push nichtsfrei/qmk:latest
+      - run: docker build -f openvas-dev/Containerfile -t nichtsfrei/openvas-dev:latest openvas-dev/
+      - run: docker push nichtsfrei/openvas-dev:latest

@@ -1,0 +1,70 @@
+FROM rust:latest
+ARG UID=1000
+ARG GID=1000
+
+RUN apt-get update && apt-get install -y \
+    sudo \ 
+    git \ 
+    rsync \ 
+    pipx \ 
+    redis-server \ 
+    clangd \
+    # Runtime dependencies, required for .devcontainer
+    nmap \
+    snmp \
+    # netdiag \ not in debian stable anymore?
+    pnscan \
+    # net-tools is required by some nasl plugins.
+    # nasl_pread: Failed to execute child process “netstat” (No such file or directory)
+    net-tools 
+# Add prepare-user-dirs.sh and execcute it
+COPY prepare-user-dirs.sh /prepare-user-dirs.sh
+COPY build-cmake-project.sh /usr/local/bin/build-cmake-project.sh
+RUN chmod +x /usr/local/bin/build-cmake-project.sh
+COPY build-openvas /usr/local/bin/build-openvas
+RUN chmod +x /usr/local/bin/build-openvas
+COPY build-gvm-libs /usr/local/bin/build-gvm-libs
+RUN chmod +x /usr/local/bin/build-gvm-libs
+COPY github-clone.sh /usr/local/bin/github-clone
+RUN chmod +x /usr/local/bin/github-clone
+
+RUN bash /prepare-user-dirs.sh && rm /prepare-user-dirs.sh
+
+RUN apt install -y \
+        ninja-build \ 
+        gettext \ 
+        cmake \ 
+        unzip \ 
+        curl \ 
+        build-essential \ 
+        nodejs \ 
+        ripgrep \ 
+        fzf
+RUN github-clone neovim/neovim
+RUN cd /workspaces/neovim/neovim && \
+    make CMAKE_BUILD_TYPE=RelWithDebInfo && \
+    make install && \
+    rm -rf /workspaces/neovim
+
+
+
+USER user
+RUN python3 -m pipx install greenbone-feed-sync
+# installing gvm-libs and openvas-scanner
+RUN github-clone greenbone/gvm-libs 
+RUN github-clone greenbone/openvas-scanner
+RUN github-clone greenbone/openvas-smb
+RUN sudo sh /workspaces/greenbone/gvm-libs/.github/install-dependencies.sh
+RUN sudo sh /workspaces/greenbone/openvas-smb/.github/install-openvas-smb-dependencies.sh
+RUN sudo sh /workspaces/greenbone/openvas-scanner/.github/install-openvas-dependencies.sh
+
+RUN build-gvm-libs
+RUN build-openvas
+
+RUN rustup component add rust-analyzer rust-src
+
+RUN sudo rm -rf /workspaces && sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
+
+USER redis
+RUN sed 's/redis-openvas/redis/' /workspaces/greenbone/openvas-scanner/config/redis-openvas.conf | tee /etc/redis/redis.conf
+USER user
