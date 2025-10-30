@@ -63,8 +63,8 @@ RUN build-openvas
 
 RUN rustup component add rust-analyzer rust-src
 
-RUN sudo rm -rf /workspaces && sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
-
 USER redis
 RUN sed 's/redis-openvas/redis/' /workspaces/greenbone/openvas-scanner/config/redis-openvas.conf | tee /etc/redis/redis.conf
+
 USER user
+RUN sudo rm -rf /workspaces && sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
