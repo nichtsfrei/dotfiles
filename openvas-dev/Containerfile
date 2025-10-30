@@ -39,14 +39,14 @@ RUN apt install -y \
         build-essential \ 
         nodejs \ 
         ripgrep \ 
+        jq \
+        golang \
         fzf
 RUN github-clone neovim/neovim
 RUN cd /workspaces/neovim/neovim && \
     make CMAKE_BUILD_TYPE=RelWithDebInfo && \
     make install && \
     rm -rf /workspaces/neovim
-
-
 
 USER user
 RUN python3 -m pipx install greenbone-feed-sync

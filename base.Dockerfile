@@ -10,6 +10,7 @@ RUN dnf -y --setopt=install_weak_deps=False install \
 	clangd\
 	clang-tools-extra\
 	rustup\
+	jq \
 	fish && \
 	dnf clean all
 RUN rustup-init -y 
