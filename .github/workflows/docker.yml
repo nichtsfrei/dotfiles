@@ -10,6 +10,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+         container:
+          - { path: "base.Dockerfile", tag: "nichtsfrei/base:latest", dir: "." }
+          - { path: "openvas-dev/Containerfile", tag: "nichtsfrei/openvas-dev:latest", dir: "openvas-dev/" }
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
@@ -18,9 +23,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - run: docker build -f base.Dockerfile -t nichtsfrei/base:latest .
-      - run: docker push nichtsfrei/base:latest
-      # - run: docker build -f qmk.Dockerfile -t nichtsfrei/qmk:latest .
-      # - run: docker push nichtsfrei/qmk:latest
-      - run: docker build -f openvas-dev/Containerfile -t nichtsfrei/openvas-dev:latest openvas-dev/
-      - run: docker push nichtsfrei/openvas-dev:latest
+      - run: docker build -f ${{ matrix.container.path }} -t ${{ matrix.container.tag }} ${{ matrix.container.dir }}
+      - run: docker push ${{ matrix.container.tag }}
