@@ -3,7 +3,6 @@ owner=${1:-greenbone}
 if [ -d "/workspaces/$owner" ]; then
     target_dir="/workspaces/$owner/gvm-libs"
 else
-
-    target_dir="$HOME/src/greenbone/gvm-libs"
+    target_dir="$HOME/src/$owner/gvm-libs"
 fi
 /usr/local/bin/build-cmake-project.sh "$target_dir"

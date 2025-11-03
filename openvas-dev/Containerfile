@@ -2,7 +2,7 @@ FROM rust:latest
 ARG UID=1000
 ARG GID=1000
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y \
     sudo \ 
     git \ 
     rsync \ 
@@ -28,7 +28,6 @@ RUN chmod +x /usr/local/bin/build-gvm-libs
 COPY github-clone.sh /usr/local/bin/github-clone
 RUN chmod +x /usr/local/bin/github-clone
 
-RUN bash /prepare-user-dirs.sh && rm /prepare-user-dirs.sh
 
 RUN apt install -y \
         ninja-build \ 
@@ -41,30 +40,27 @@ RUN apt install -y \
         ripgrep \ 
         jq \
         golang \
-        fzf
-RUN github-clone neovim/neovim
-RUN cd /workspaces/neovim/neovim && \
+        fzf && \
+    github-clone neovim/neovim && \
+    cd /workspaces/neovim/neovim && \
     make CMAKE_BUILD_TYPE=RelWithDebInfo && \
-    make install && \
-    rm -rf /workspaces/neovim
-
-USER user
-RUN python3 -m pipx install greenbone-feed-sync
-# installing gvm-libs and openvas-scanner
-RUN github-clone greenbone/gvm-libs 
-RUN github-clone greenbone/openvas-scanner
-RUN github-clone greenbone/openvas-smb
-RUN sudo sh /workspaces/greenbone/gvm-libs/.github/install-dependencies.sh
-RUN sudo sh /workspaces/greenbone/openvas-smb/.github/install-openvas-smb-dependencies.sh
-RUN sudo sh /workspaces/greenbone/openvas-scanner/.github/install-openvas-dependencies.sh
-
-RUN build-gvm-libs
-RUN build-openvas
-
-RUN rustup component add rust-analyzer rust-src
+    make install
+RUN python3 -m pipx install --global greenbone-feed-sync && \
+    github-clone greenbone/gvm-libs  && \
+    github-clone greenbone/openvas-scanner && \
+    github-clone greenbone/openvas-smb && \
+    sh /workspaces/greenbone/gvm-libs/.github/install-dependencies.sh && \
+    sh /workspaces/greenbone/openvas-smb/.github/install-openvas-smb-dependencies.sh && \
+    sh /workspaces/greenbone/openvas-scanner/.github/install-openvas-dependencies.sh && \
+    build-gvm-libs && \
+    build-openvas && \
+    rustup component add rust-analyzer rust-src && \
+    bash /prepare-user-dirs.sh && rm /prepare-user-dirs.sh
 
 USER redis
 RUN sed 's/redis-openvas/redis/' /workspaces/greenbone/openvas-scanner/config/redis-openvas.conf | tee /etc/redis/redis.conf
 
+USER root
+RUN rm -rf /workspaces && apt-get clean && sudo rm -rf /var/lib/apt/lists/*
+
 USER user
-RUN sudo rm -rf /workspaces && sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*

@@ -3,7 +3,7 @@ owner=${1:-greenbone}
 if [ -d "/workspaces/$owner" ]; then
     target_dir="/workspaces/$owner/openvas-scanner"
 else
-    target_dir="$HOME/src/greenbone/openvas-scanner"
+    target_dir="$HOME/src/$owner/openvas-scanner"
 fi
 
 /usr/local/bin/build-cmake-project.sh "$target_dir"
