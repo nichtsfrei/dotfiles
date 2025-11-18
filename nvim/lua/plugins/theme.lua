@@ -1,6 +1,9 @@
 return {
-    "EdenEast/nightfox.nvim",
+    "scottmckendry/cyberdream.nvim",
     config = function()
-        vim.cmd("colorscheme carbonfox")
+        require("cyberdream").setup({
+            transparent = true
+        })
+        vim.cmd("colorscheme cyberdream")
     end,
 }
