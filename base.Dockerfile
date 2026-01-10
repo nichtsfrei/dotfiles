@@ -11,7 +11,6 @@ RUN dnf -y --setopt=install_weak_deps=False install \
 	clang-tools-extra\
 	rustup\
 	jq \
+	tmux \
 	fish && \
 	dnf clean all
-RUN rustup-init -y 
-#RUN rustup component add rust-analyzer
