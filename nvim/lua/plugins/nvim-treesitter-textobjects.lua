@@ -1,10 +1,47 @@
 return {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
     dependencies = {
-        "nvim-treesitter/nvim-treesitter"
+        {
+            "nvim-treesitter/nvim-treesitter",
+            build = ":TSUpdate",
+            config = function()
+                local configs = require("nvim-treesitter.config")
+
+                configs.setup({
+                    ensure_installed = {
+                        "c",
+                        "lua",
+                        "rust",
+                        "vim",
+                        "vimdoc",
+                        "query",
+                        "heex",
+                        "javascript",
+                        "html",
+                        "markdown",
+                        "markdown_inline",
+                    },
+                    auto_install = true,
+                    sync_install = false,
+                    highlight = { enable = true },
+                    indent = { enable = true },
+
+                    incremental_selection = {
+                        enable = true,
+                        keymaps = {
+                            init_selection = "<Enter>", -- set to `false` to disable one of the mappings
+                            node_incremental = "<Enter>",
+                            scope_incremental = false,
+                            node_decremental = "<Backspace>",
+                        },
+                    },
+                })
+            end,
+        },
     },
     init = function()
-        local config = require'nvim-treesitter.configs';
+        local config = require("nvim-treesitter.config")
         config.setup({
             textobjects = {
                 select = {
@@ -33,9 +70,9 @@ return {
                     -- and should return the mode ('v', 'V', or '<c-v>') or a table
                     -- mapping query_strings to modes.
                     selection_modes = {
-                        ['@parameter.outer'] = 'v', -- charwise
-                        ['@function.outer'] = 'V', -- linewise
-                        ['@class.outer'] = '<c-v>', -- blockwise
+                        ["@parameter.outer"] = "v", -- charwise
+                        ["@function.outer"] = "V", -- linewise
+                        ["@class.outer"] = "<c-v>", -- blockwise
                     },
                     -- If you set this to `true` (default is `false`) then any textobject is
                     -- extended to include preceding or succeeding whitespace. Succeeding
@@ -51,13 +88,13 @@ return {
                 swap = {
                     enable = true,
                     swap_next = {
-                        ["<leader>a"] = {query="@parameter.inner", desc="Swap with next parameter"},
+                        ["<leader>a"] = { query = "@parameter.inner", desc = "Swap with next parameter" },
                     },
                     swap_previous = {
                         ["<leader>A"] = "@parameter.inner",
                     },
                 },
             },
-        });
-    end
+        })
+    end,
 }
