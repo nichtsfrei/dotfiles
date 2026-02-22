@@ -11,6 +11,7 @@ end, { desc = "Open Diagnostics in Float" })
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set("n", "<leader>y", [["+Y]])
+vim.keymap.set("n", "<leader>p", [["+p]])
 vim.keymap.set("x", "s", [[:s/\%V]])
 
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
