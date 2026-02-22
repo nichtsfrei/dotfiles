@@ -2,12 +2,7 @@ return {
     -- Main LSP Configuration
     "neovim/nvim-lspconfig",
     dependencies = {
-        "mason-org/mason-lspconfig.nvim",
-        opts = {},
-        dependencies = {
-            { "mason-org/mason.nvim", opts = {} },
-            "neovim/nvim-lspconfig",
-        },
+        { "j-hui/fidget.nvim", opts = {} },
     },
     config = function()
         vim.api.nvim_create_autocmd("LspAttach", {
