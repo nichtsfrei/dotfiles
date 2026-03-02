@@ -11,6 +11,7 @@ declare -a linkables
 linkables[0]="nvim,${CONFIG_DIR}/nvim"
 linkables[1]="tmux,${CONFIG_DIR}/tmux"
 linkables[2]="fish/functions/fish_ssh_agent.fish,${CONFIG_DIR}/fish/functions/fish_ssh_agent.fish"
+linkables[3]="ashell,${CONFIG_DIR}/ashell"
 
 setup_distrobox() {
   distrobox ls | grep my-distrobox || distrobox assemble create --file distrobox/default.ini
