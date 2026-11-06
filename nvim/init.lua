@@ -1,7 +1,3 @@
--- TASK: make this configuration reuseable
---
--- To have this configuration reusable with my nixsetup we need to check if the packages are managed elswhere before using vim.pack.add
--- to allow non standard filesystem setup especially on projects that require compilation/runtime executable
 vim.pack.add({
     "https://github.com/folke/snacks.nvim",
     "https://github.com/neovim/nvim-lspconfig",
